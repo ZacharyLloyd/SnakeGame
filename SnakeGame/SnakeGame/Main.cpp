@@ -1,4 +1,7 @@
 #include <iostream>
+#include "Gameloop.h"
+#include "Menu.h"
+#include "Snake.h"
 
 
 using namespace std;
@@ -43,9 +46,15 @@ void Draw()
 
 int main()
 {
+	GameLoop gameloop;
+	Menu menu;
+	Snake snake;
 	setup();
 	while (!gameOver)
 	{
+		gameloop.CreatedGameLoop;
+		menu.CreatedMenu;
+		snake.CreatedSnake;
 		setup();
 		Draw();
 	}
