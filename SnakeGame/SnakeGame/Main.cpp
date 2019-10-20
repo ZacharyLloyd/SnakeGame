@@ -50,16 +50,11 @@ void Draw()
 
 int main()
 {
-	
-	
-
-	while (!gameOver)
-	{
-		gameloop.CreatedGameLoop();
-		menu.CreatedMenu();
-		snake.CreatedSnake();
-		//setup();
-		//Draw();
-	}
+	gameloop.CreatedGameLoop();
+	menu.CreatedMenu();
+	snake.CreatedSnake();
+	setup();
+	//Draw();
+	system("pause");
 	return 0;
 }
