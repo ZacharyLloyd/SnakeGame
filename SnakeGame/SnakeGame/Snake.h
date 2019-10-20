@@ -3,6 +3,9 @@
 class Snake
 {
 public:
-private: void CreatedSnake();
+private: 
+
+	void CreatedSnake();
+
 protected:
 };

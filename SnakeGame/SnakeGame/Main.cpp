@@ -3,8 +3,8 @@
 #include "Menu.h"
 #include "Snake.h"
 
-
 using namespace std;
+
 
 //Is Game Over Yes or No
 bool gameOver;
@@ -49,7 +49,8 @@ int main()
 	GameLoop gameloop;
 	Menu menu;
 	Snake snake;
-	setup();
+	
+
 	while (!gameOver)
 	{
 		gameloop.CreatedGameLoop;
