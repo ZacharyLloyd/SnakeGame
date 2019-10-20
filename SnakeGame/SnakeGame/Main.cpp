@@ -13,6 +13,10 @@ const int WIDTH = 21;
 //Length of the board
 const int LENGTH = 21;
 
+GameLoop gameloop;
+Menu menu;
+Snake snake;
+
 void setup()
 {
 	gameOver = false;
@@ -46,18 +50,16 @@ void Draw()
 
 int main()
 {
-	GameLoop gameloop;
-	Menu menu;
-	Snake snake;
+	
 	
 
 	while (!gameOver)
 	{
-		gameloop.CreatedGameLoop;
-		menu.CreatedMenu;
-		snake.CreatedSnake;
-		setup();
-		Draw();
+		gameloop.CreatedGameLoop();
+		menu.CreatedMenu();
+		snake.CreatedSnake();
+		//setup();
+		//Draw();
 	}
 	return 0;
 }

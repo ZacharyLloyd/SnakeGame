@@ -3,10 +3,9 @@
 class Menu
 {
 public: 
-
+	void CreatedMenu();
 private: 
 
-	void CreatedMenu();
-
 protected:
+	
 };

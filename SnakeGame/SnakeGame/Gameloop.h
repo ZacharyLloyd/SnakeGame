@@ -5,10 +5,9 @@
 class GameLoop
 {
 public:
-	
+	void CreatedGameLoop();
 private: 
 
-	void CreatedGameLoop();
-
 protected:
+	
 };
