@@ -51,10 +51,13 @@ void Draw()
 int main()
 {
 	gameloop.CreatedGameLoop();
+	system("pause");
 	menu.CreatedMenu();
+	system("pause");
 	snake.CreatedSnake();
+	system("pause");
 	setup();
-	//Draw();
+	Draw();
 	system("pause");
 	return 0;
 }

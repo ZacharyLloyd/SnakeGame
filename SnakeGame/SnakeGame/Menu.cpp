@@ -3,11 +3,8 @@
 
 using namespace std;
 
-void CreatedMenu() 
-{
-	cout << "The munu was created as an object." << endl;
-}
 
 void Menu::CreatedMenu()
 {
+	cout << "The munu was created as an object." << endl;
 }
