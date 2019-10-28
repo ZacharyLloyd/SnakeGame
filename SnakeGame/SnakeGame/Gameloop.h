@@ -14,9 +14,9 @@ public:
 	//Is Game Over Yes or No
 	bool gameOver;
 	//Width of the Board
-	const int WIDTH = 21;
+	const int WIDTH = 55;
 	//Length of the board
-	const int LENGTH = 21;
+	const int LENGTH = 25;
 
 	//Coordinates
 	int x, y;
