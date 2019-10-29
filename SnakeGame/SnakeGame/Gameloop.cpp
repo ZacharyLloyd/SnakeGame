@@ -1,13 +1,10 @@
-#include "Gameloop.h"
-#include "Input.h"
-#include "Main.cpp"
 #include <iostream>
+#include "Gameloop.h"
 
 using namespace std;
 
 void GameLoop::CreatedGameLoop()
 {
-
 	cout << "The game loop was created as an object." << endl;
 }
 

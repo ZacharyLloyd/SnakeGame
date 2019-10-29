@@ -3,8 +3,6 @@
 #include <windows.h>
 
 #include "Main.cpp"
-#include "Input.h"
-#include "Gameloop.h"
 
 using namespace std;
 

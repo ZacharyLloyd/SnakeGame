@@ -1,9 +1,10 @@
 #pragma once
 
+
 class GameLoop
 {
 public:
-	static GameLoop * Instance;
+	
 
 	void CreatedGameLoop();
 
