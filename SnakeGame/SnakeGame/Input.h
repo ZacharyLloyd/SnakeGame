@@ -1,17 +1,13 @@
 #pragma once
 
-#ifndef INPUT_H
-#define INPUT_H
-
 class Input {
 public:
-	Input();
+	static Input * Instance;
 	enum Direction { STOP = 0, LEFT, RIGHT, UP, DOWN };
-	void MOVE(Direction direction);
+	Direction direction;
+	void MOVE();
 	~Input();
 
 private:
 	//Something
 };
-
-#endif

@@ -1,15 +1,17 @@
 #pragma once
-#include "Gameloop.h"
-
 
 class GameLoop
 {
 public:
+	static GameLoop * Instance;
+
 	void CreatedGameLoop();
 
 	void Setup();
 
 	void Draw();
+
+	void Logic();
 
 	//Is Game Over Yes or No
 	bool gameOver;
@@ -19,7 +21,7 @@ public:
 	const int LENGTH = 25;
 
 	//Coordinates
-	int x, y;
+	int x = 0, y = 0;
 
 	//Fruit Coordinates
 	int fruitX, fruitY;
