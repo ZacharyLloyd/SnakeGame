@@ -8,18 +8,13 @@ using namespace std;
 
 GameLoop gameloop;
 Menu menu;
-Snake snake;
 Input input;
 
 int main()
 {
-	gameloop.CreatedGameLoop();
-	system("pause");
-	menu.CreatedMenu();
-	system("pause");
-	snake.CreatedSnake();
-	system("pause");
-	gameloop.Setup();
-	system("pause");
+	/*menu.CreatedMenu();
+	system("pause");*/
+	if (!gameloop.gameOver)
+		gameloop.Update();
 	return 0;
 }

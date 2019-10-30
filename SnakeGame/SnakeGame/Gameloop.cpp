@@ -1,13 +1,14 @@
 #include <iostream>
 
 #include "Gameloop.h"
-
+#include <chrono>
 
 using namespace std;
 
 GameLoop::GameLoop()
 {
 	inputHandler = new Input();
+	snake = new Snake();
 	inputHandler->mainGame = this;
 	gameOver = false;
 }
@@ -29,7 +30,7 @@ void GameLoop::Draw() {
 			if (j == 0)
 				cout << "#";
 			if (i == y && j == x)
-				cout << "O";
+				snake->CreateSnake();
 			else if (i == fruitY && j == fruitX)
 				cout << "F";
 			else
@@ -44,7 +45,7 @@ void GameLoop::Draw() {
 		cout << "#";
 }
 
-void GameLoop::Setup() {
+void GameLoop::Update() {
 	gameOver = false;
 	Direction::STOP;
 	x = WIDTH / 2;
@@ -52,7 +53,6 @@ void GameLoop::Setup() {
 	fruitX = rand() % WIDTH;
 	fruitY = rand() % LENGTH;
 	score = 0;
-	system("pause");
 	Draw();
 }
 

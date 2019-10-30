@@ -13,13 +13,13 @@ void Input::MOVE() {
 			mainGame->Logic(Direction::LEFT);
 			break;
 		case 'd':
-			Direction::RIGHT;
+			mainGame->Logic(Direction::RIGHT);
 			break;
 		case 'w':
-			Direction::UP;
+			mainGame->Logic(Direction::UP);
 			break;
 		case 's':
-			Direction::DOWN;
+			mainGame->Logic(Direction::DOWN);
 			break;
 		case 'x':
 			mainGame->gameOver = true;

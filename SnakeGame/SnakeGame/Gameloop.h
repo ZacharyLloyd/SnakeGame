@@ -2,6 +2,7 @@
 
 #include "Input.h"
 #include "Direction.h"
+#include "Snake.h"
 //Is Game Over Yes or No
 
 #ifndef GAMELOOP_H
@@ -15,7 +16,7 @@ public:
 
 	void CreatedGameLoop();
 
-	void Setup();
+	void Update();
 
 	void Draw();
 
@@ -40,6 +41,7 @@ public:
 
 private: 
 	class Input* inputHandler;
+	class Snake* snake;
 protected:
 	
 };

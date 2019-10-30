@@ -3,7 +3,7 @@
 class Snake
 {
 public:
-	void CreatedSnake();
+	void CreateSnake();
 private: 
 
 protected:

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void Snake::CreatedSnake()
+void Snake::CreateSnake()
 {
-	cout << "The snake was created as an object." << endl;
+	cout << "O";
 }
