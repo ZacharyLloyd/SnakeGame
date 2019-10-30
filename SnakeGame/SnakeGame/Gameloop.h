@@ -3,10 +3,6 @@
 #include "Input.h"
 #include "Direction.h"
 #include "Snake.h"
-//Is Game Over Yes or No
-
-#ifndef GAMELOOP_H
-#define GAMELOOP_H
 
 class GameLoop
 {
@@ -45,5 +41,3 @@ private:
 protected:
 	
 };
-
-#endif

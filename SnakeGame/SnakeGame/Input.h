@@ -4,10 +4,6 @@
 #include "Gameloop.h"
 #include "Direction.h"
 
-//extern Direction direction;
-
-
-
 class Input {
 public:
 	// constructor
