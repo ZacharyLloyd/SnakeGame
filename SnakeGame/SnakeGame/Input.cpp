@@ -5,7 +5,12 @@
 #include "Input.h"
 
 using namespace std;
-//enum Direction direction;
+
+Input::Input() 
+{
+
+}
+
 void Input::MOVE() {
 	if (_kbhit()) {
 		switch (_getch()) {
@@ -27,11 +32,6 @@ void Input::MOVE() {
 			break;
 		}
 	}
-}
-
-Input::Input() 
-{
-
 }
 
 Input::~Input() {

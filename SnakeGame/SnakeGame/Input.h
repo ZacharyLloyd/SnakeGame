@@ -1,5 +1,4 @@
-#ifndef INPUT_H
-#define INPUT_H
+#pragma once
 
 #include "Gameloop.h"
 #include "Direction.h"
@@ -8,14 +7,14 @@ class Input {
 public:
 	// constructor
 	Input();
-	// deconstructor
-	~Input();
 
 	void MOVE();
 
 	class GameLoop* mainGame;
+
+	// deconstructor
+	~Input();
+
 //private:
 	//Something
 };
-
-#endif

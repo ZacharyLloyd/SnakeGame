@@ -32,12 +32,13 @@ public:
 
 	//Score
 	int score;
-	bool gameOver;
+	bool gameOver = false;
 
 
 private: 
 	class Input* inputHandler;
 	class Snake* snake;
+
 protected:
 	
 };

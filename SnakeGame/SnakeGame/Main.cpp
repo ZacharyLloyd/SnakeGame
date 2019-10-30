@@ -16,5 +16,6 @@ int main()
 	system("pause");*/
 	if (!gameloop.gameOver)
 		gameloop.Update();
-	return 0;
+	else
+		return 0;
 }
