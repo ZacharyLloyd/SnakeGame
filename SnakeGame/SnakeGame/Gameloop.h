@@ -1,10 +1,17 @@
 #pragma once
 
+#include "Input.h"
+#include "Direction.h"
+//Is Game Over Yes or No
+
+#ifndef GAMELOOP_H
+#define GAMELOOP_H
 
 class GameLoop
 {
 public:
-	
+	// Constructor
+	GameLoop();
 
 	void CreatedGameLoop();
 
@@ -12,10 +19,9 @@ public:
 
 	void Draw();
 
-	void Logic();
+	void Logic(Direction dir);
 
-	//Is Game Over Yes or No
-	bool gameOver;
+	
 	//Width of the Board
 	const int WIDTH = 55;
 	//Length of the board
@@ -29,9 +35,13 @@ public:
 
 	//Score
 	int score;
+	bool gameOver;
+
 
 private: 
-
+	class Input* inputHandler;
 protected:
 	
 };
+
+#endif

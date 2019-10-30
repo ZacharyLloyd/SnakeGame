@@ -2,30 +2,35 @@
 #include <conio.h>
 #include <windows.h>
 
-#include "Main.cpp"
+#include "Input.h"
 
 using namespace std;
-
+//enum Direction direction;
 void Input::MOVE() {
 	if (_kbhit()) {
 		switch (_getch()) {
 		case 'a':
-			direction = LEFT;
+			mainGame->Logic(Direction::LEFT);
 			break;
 		case 'd':
-			direction = RIGHT;
+			Direction::RIGHT;
 			break;
 		case 'w':
-			direction = UP;
+			Direction::UP;
 			break;
 		case 's':
-			direction = DOWN;
+			Direction::DOWN;
 			break;
 		case 'x':
-			gameloop.gameOver = true;
+			mainGame->gameOver = true;
 			break;
 		}
 	}
+}
+
+Input::Input() 
+{
+
 }
 
 Input::~Input() {

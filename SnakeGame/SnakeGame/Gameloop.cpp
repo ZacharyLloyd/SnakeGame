@@ -1,7 +1,16 @@
 #include <iostream>
+
 #include "Gameloop.h"
 
+
 using namespace std;
+
+GameLoop::GameLoop()
+{
+	inputHandler = new Input();
+	inputHandler->mainGame = this;
+	gameOver = false;
+}
 
 void GameLoop::CreatedGameLoop()
 {
@@ -37,7 +46,7 @@ void GameLoop::Draw() {
 
 void GameLoop::Setup() {
 	gameOver = false;
-	input.direction = input.STOP;
+	Direction::STOP;
 	x = WIDTH / 2;
 	y = LENGTH / 2;
 	fruitX = rand() % WIDTH;
@@ -47,18 +56,18 @@ void GameLoop::Setup() {
 	Draw();
 }
 
-void GameLoop::Logic() {
-	switch (input.direction) {
-	case Input::Direction::LEFT:
+void GameLoop::Logic(Direction dir) {
+	switch (dir) {
+	case Direction::LEFT:
 		x--;
 		break;
-	case Input::Direction::RIGHT:
+	case Direction::RIGHT:
 		x++;
 		break;
-	case Input::Direction::UP:
+	case Direction::UP:
 		y--;
 		break;
-	case Input::Direction::DOWN:
+	case Direction::DOWN:
 		y++;
 		break;
 	default:

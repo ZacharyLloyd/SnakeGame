@@ -6,10 +6,10 @@
 
 using namespace std;
 
-extern GameLoop gameloop;
-extern Menu menu;
-extern Snake snake;
-extern Input input;
+GameLoop gameloop;
+Menu menu;
+Snake snake;
+Input input;
 
 int main()
 {

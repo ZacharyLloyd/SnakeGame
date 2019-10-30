@@ -1,12 +1,25 @@
-#pragma once
+#ifndef INPUT_H
+#define INPUT_H
+
+#include "Gameloop.h"
+#include "Direction.h"
+
+//extern Direction direction;
+
+
 
 class Input {
 public:
-	enum Direction { STOP = 0, LEFT, RIGHT, UP, DOWN };
-	Direction direction;
-	void MOVE();
+	// constructor
+	Input();
+	// deconstructor
 	~Input();
 
-private:
+	void MOVE();
+
+	class GameLoop* mainGame;
+//private:
 	//Something
 };
+
+#endif
