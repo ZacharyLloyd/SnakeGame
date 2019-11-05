@@ -2,13 +2,11 @@
 #include "Gameloop.h"
 #include "Menu.h"
 #include "Snake.h"
-#include "Input.h"
 
 using namespace std;
 
 GameLoop gameloop;
 Menu menu;
-Input input;
 
 int main()
 {
@@ -16,6 +14,8 @@ int main()
 	system("pause");*/
 	if (!gameloop.gameOver)
 		gameloop.Update();
-	else
+	else {
+		cout << "Did that even work?" << endl;
 		return 0;
+	}
 }

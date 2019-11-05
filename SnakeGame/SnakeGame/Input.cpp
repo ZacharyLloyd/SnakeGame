@@ -26,10 +26,9 @@ void Input::MOVE() {
 		case 's':
 			mainGame->Logic(Direction::DOWN);
 			break;
-		case 'x':
-			cout << "Nani" << endl;
-			mainGame->gameOver = true;
-			break;
+		//case 'x':
+		//	mainGame->gameOver = true;
+		//	break;
 		}
 	}
 }

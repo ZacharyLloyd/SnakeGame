@@ -18,27 +18,31 @@ public:
 
 	void Logic(Direction dir);
 
-	
+	void WipeConsole();
+
+
 	//Width of the Board
 	const int WIDTH = 55;
 	//Length of the board
 	const int LENGTH = 25;
 
 	//Coordinates
-	int x = 0, y = 0;
+	int x = 0;
+	int y = 0;
 
 	//Fruit Coordinates
-	int fruitX, fruitY;
+	int fruitX = 0;
+	int fruitY = 0;
 
 	//Score
-	int score;
+	int score = 0;
 	bool gameOver = false;
 
 
-private: 
-	class Input* inputHandler;
-	class Snake* snake;
+private:
+	class Input* inputHandler = nullptr;
+	class Snake* snake = nullptr;
 
 protected:
-	
+
 };

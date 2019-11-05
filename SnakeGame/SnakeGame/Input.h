@@ -10,7 +10,7 @@ public:
 
 	void MOVE();
 
-	class GameLoop* mainGame;
+	class GameLoop * mainGame = nullptr;
 
 	// deconstructor
 	~Input();
