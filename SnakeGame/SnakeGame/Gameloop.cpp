@@ -34,7 +34,7 @@ void GameLoop::Draw() {
 			time = (clock() - start) / (double)CLOCKS_PER_SEC;
 		}
 
-		WipeConsole();
+		system("CLS");
 
 		for (int i = 0; i < WIDTH; i++)
 			cout << "#";
@@ -94,16 +94,16 @@ void GameLoop::Logic(Direction dir) {
 	}
 }
 
-void GameLoop::WipeConsole() {
-	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-	COORD coord = { 0, 0 };
-	DWORD count;
-	CONSOLE_SCREEN_BUFFER_INFO csbi;
-
-	if (GetConsoleScreenBufferInfo(hStdOut, &csbi)) {
-		FillConsoleOutputCharacter(hStdOut, (TCHAR)31, csbi.dwSize.X * csbi.dwSize.Y, coord, &count);
-		FillConsoleOutputCharacter(hStdOut, csbi.wAttributes, csbi.dwSize.X - 1 * csbi.dwSize.Y - 1, coord, &count);
-		SetConsoleCursorPosition(hStdOut, coord);
-	}
-		
-}
+//void GameLoop::WipeConsole() {
+//	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+//	COORD coord = { 0, 0 };
+//	DWORD count;
+//	CONSOLE_SCREEN_BUFFER_INFO csbi;
+//
+//	if (GetConsoleScreenBufferInfo(hStdOut, &csbi)) {
+//		FillConsoleOutputCharacter(hStdOut, (TCHAR)31, csbi.dwSize.X * csbi.dwSize.Y, coord, &count);
+//		FillConsoleOutputCharacter(hStdOut, csbi.wAttributes, csbi.dwSize.X - 1 * csbi.dwSize.Y - 1, coord, &count);
+//		SetConsoleCursorPosition(hStdOut, coord);
+//	}
+//		
+//}
