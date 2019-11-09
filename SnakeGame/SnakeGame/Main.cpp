@@ -10,12 +10,9 @@ Menu menu;
 
 int main()
 {
-	/*menu.CreatedMenu();
-	system("pause");*/
+	//The main game.
 	if (!gameloop.gameOver)
 		gameloop.Update();
-	else {
-		cout << "Did that even work?" << endl;
-		return 0;
-	}
+
+	return 0;
 }
