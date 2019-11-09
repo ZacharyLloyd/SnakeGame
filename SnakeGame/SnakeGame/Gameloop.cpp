@@ -6,7 +6,7 @@
 
 using namespace std;
 
-const int FPS = 5;
+const int FPS = 300;
 
 GameLoop::GameLoop()
 {

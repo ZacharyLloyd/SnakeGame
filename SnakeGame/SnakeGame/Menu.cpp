@@ -6,5 +6,5 @@ using namespace std;
 
 void Menu::CreatedMenu()
 {
-	cout << "The munu was created as an object." << endl;
+	cout << "The menu was created as an object." << endl;
 }
