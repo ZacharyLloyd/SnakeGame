@@ -11,6 +11,8 @@ Input::Input()
 
 }
 
+//Detects button presses,
+//and send that information to the game loop
 void Input::MOVE() {
 	if (_kbhit()) {
 		switch (_getch()) {
