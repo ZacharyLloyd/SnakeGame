@@ -6,10 +6,15 @@
 
 using namespace std;
 
+//The value used to refresh the console
 const int FPS = 300;
 
 GameLoop::GameLoop()
 {
+	//As GameLoop is being created, 
+	//create new input, reference our snake
+	//and make sure the main game is equal
+	//to this instance.
 	inputHandler = new Input();
 	snake = new Snake();
 	inputHandler->mainGame = this;
@@ -20,12 +25,16 @@ GameLoop::GameLoop()
 
 void GameLoop::CreatedGameLoop()
 {
+	//To let us know a game loop was created
 	cout << "The game loop was created as an object." << endl;
 
 }
 
 void GameLoop::Draw() {
 
+	//This for loop is a clock that
+	//Handles how overtime the board will
+	//redraw itself.
 	for (;;) {
 		clock_t start;
 		double time = 0.0;
@@ -34,6 +43,7 @@ void GameLoop::Draw() {
 			time = (clock() - start) / (double)CLOCKS_PER_SEC;
 		}
 
+		//Clear the console
 		system("CLS");
 
 		for (int i = 0; i < WIDTH; i++)
