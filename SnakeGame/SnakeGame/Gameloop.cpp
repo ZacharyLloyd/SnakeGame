@@ -6,8 +6,10 @@
 
 using namespace std;
 
+//Setting Frame Per-second times
 const int FPS = 300;
 
+//This is the game loop 
 GameLoop::GameLoop()
 {
 	inputHandler = new Input();
@@ -17,13 +19,13 @@ GameLoop::GameLoop()
 
 
 }
-
+//We made the game loop into a object to keep it easy and simple.
 void GameLoop::CreatedGameLoop()
 {
 	cout << "The game loop was created as an object." << endl;
 
 }
-
+//This is to draw the board, snake and food, while running the frame rates altogether
 void GameLoop::Draw() {
 
 	for (;;) {
@@ -33,13 +35,16 @@ void GameLoop::Draw() {
 		while (time < 1.0 / FPS) {
 			time = (clock() - start) / (double)CLOCKS_PER_SEC;
 		}
-
+		//Clear system
 		system("CLS");
 
 		for (int i = 0; i < WIDTH; i++)
 			cout << "#";
 		cout << endl;
 
+		//Food is generated a 'F'
+		//Border is in '#'
+		//also width and length of the board.
 		for (int i = 0; i < LENGTH; i++)
 		{
 			for (int j = 0; j < WIDTH; j++)
@@ -63,7 +68,7 @@ void GameLoop::Draw() {
 
 	}
 }
-
+//This is made for so the board updates and food updates.
 void GameLoop::Update() {
 	gameOver = false;
 	Direction::STOP;
@@ -74,18 +79,22 @@ void GameLoop::Update() {
 	score = 0;
 	Draw();
 }
-
+// This is used for the user direction for the snake.
 void GameLoop::Logic(Direction dir) {
 	switch (dir) {
+		//Left direction
 	case Direction::LEFT:
 		x--;
 		break;
+		//Right Direction
 	case Direction::RIGHT:
 		x++;
 		break;
+		//Moving UP 
 	case Direction::UP:
 		y--;
 		break;
+		//Moving downword
 	case Direction::DOWN:
 		y++;
 		break;
@@ -93,6 +102,8 @@ void GameLoop::Logic(Direction dir) {
 		break;
 	}
 }
+//This was orginally used for testing the board.
+
 
 //void GameLoop::WipeConsole() {
 //	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
