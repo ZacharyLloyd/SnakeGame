@@ -18,7 +18,7 @@ public:
 
 	void Logic(Direction dir);
 
-	Direction direction;
+	Direction direction = Direction::RIGHT;
 
 	void WipeConsole();
 

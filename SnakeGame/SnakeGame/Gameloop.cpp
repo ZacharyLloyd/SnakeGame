@@ -54,6 +54,7 @@ void GameLoop::Draw() {
 		system("CLS");
 
 		inputHandler->MOVE();
+		Logic(direction);
 
 		for (int i = 0; i < WIDTH; i++)
 			cout << "#";

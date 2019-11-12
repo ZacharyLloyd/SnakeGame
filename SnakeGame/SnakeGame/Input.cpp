@@ -17,20 +17,20 @@ void Input::MOVE() {
 	if (_kbhit()) {
 		switch (_getch()) {
 		case 'a':
-			mainGame->Logic(Direction::LEFT);
+			mainGame->direction = Direction::LEFT;
 			break;
 		case 'd':
-			mainGame->Logic(Direction::RIGHT);
+			mainGame->direction = Direction::RIGHT;
 			break;
 		case 'w':
-			mainGame->Logic(Direction::UP);
+			mainGame->direction = Direction::UP;
 			break;
 		case 's':
-			mainGame->Logic(Direction::DOWN);
+			mainGame->direction = Direction::DOWN;
 			break;
 		//case 'x':
 		//	mainGame->gameOver = true;
-		//	break
+		//	break;
 		}
 	}
 }
