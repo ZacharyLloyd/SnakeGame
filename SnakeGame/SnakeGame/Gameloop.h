@@ -18,6 +18,8 @@ public:
 
 	void Logic(Direction dir);
 
+	void SpawnNewFruit();
+
 	Direction direction = Direction::RIGHT;
 
 	void WipeConsole();

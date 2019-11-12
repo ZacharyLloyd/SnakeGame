@@ -58,10 +58,14 @@ void GameLoop::Draw() {
 		Logic(direction);
 
 		//Check if Game Over
-		if ((x == 0 || x == WIDTH) || (y == 0 || y == LENGTH)) {
+		if ((x == -1 || x == WIDTH+1) || (y == -1 || y == LENGTH+1)) {
 			gameOver = true;
 			break;
 		}
+
+		//Check if we got a fruit
+		if (x == fruitX && y == fruitY)
+			SpawnNewFruit();
 
 		for (int i = 0; i < WIDTH; i++)
 			cout << "#";
@@ -97,12 +101,16 @@ void GameLoop::Draw() {
 void GameLoop::Update() {
 	x = WIDTH / 2;
 	y = LENGTH / 2;
-	fruitX = rand() % WIDTH;
-	fruitY = rand() % LENGTH;
+	
 	score = 0;
 	Draw();
 
 
+}
+
+void GameLoop::SpawnNewFruit() {
+	fruitX = rand() % WIDTH;
+	fruitY = rand() % LENGTH;
 }
 // This is used for the user direction for the snake.
 void GameLoop::Logic(Direction dir) {
