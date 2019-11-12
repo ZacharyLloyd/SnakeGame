@@ -39,6 +39,7 @@ void GameLoop::Draw() {
 	//This for loop is a clock that
 	//Handles how overtime the board will
 	//redraw itself.
+
 	for (;;) {
 		clock_t start;
 		double time = 0.0;
@@ -55,6 +56,12 @@ void GameLoop::Draw() {
 
 		inputHandler->MOVE();
 		Logic(direction);
+
+		//Check if Game Over
+		if ((x == 0 || x == WIDTH) || (y == 0 || y == LENGTH)) {
+			gameOver = true;
+			break;
+		}
 
 		for (int i = 0; i < WIDTH; i++)
 			cout << "#";
@@ -88,13 +95,14 @@ void GameLoop::Draw() {
 }
 //This is made for so the board updates and food updates.
 void GameLoop::Update() {
-	gameOver = false;
 	x = WIDTH / 2;
 	y = LENGTH / 2;
 	fruitX = rand() % WIDTH;
 	fruitY = rand() % LENGTH;
 	score = 0;
 	Draw();
+
+
 }
 // This is used for the user direction for the snake.
 void GameLoop::Logic(Direction dir) {
