@@ -86,7 +86,6 @@ void GameLoop::Draw() {
 //This is made for so the board updates and food updates.
 void GameLoop::Update() {
 	gameOver = false;
-	Direction::STOP;
 	x = WIDTH / 2;
 	y = LENGTH / 2;
 	fruitX = rand() % WIDTH;
