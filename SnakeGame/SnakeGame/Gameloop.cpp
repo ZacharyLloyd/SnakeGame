@@ -53,6 +53,8 @@ void GameLoop::Draw() {
 
 		system("CLS");
 
+		inputHandler->MOVE();
+
 		for (int i = 0; i < WIDTH; i++)
 			cout << "#";
 		cout << endl;

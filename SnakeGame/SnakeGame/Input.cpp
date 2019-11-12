@@ -30,7 +30,7 @@ void Input::MOVE() {
 			break;
 		//case 'x':
 		//	mainGame->gameOver = true;
-		//	break;
+		//	break
 		}
 	}
 }

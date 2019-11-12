@@ -18,6 +18,8 @@ public:
 
 	void Logic(Direction dir);
 
+	Direction direction;
+
 	void WipeConsole();
 
 
