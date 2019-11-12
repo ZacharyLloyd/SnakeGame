@@ -22,7 +22,7 @@ public:
 
 	Direction direction = Direction::RIGHT;
 
-	void WipeConsole();
+	void CLS();
 
 
 	//Width of the Board

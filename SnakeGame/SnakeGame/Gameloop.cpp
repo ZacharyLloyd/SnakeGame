@@ -1,7 +1,10 @@
 #include <iostream>
 #include "Gameloop.h"
 #include <chrono>
+#include <random>
 #include <ctime>
+#define NOMINMAX
+#define WIN64_LEAN_AND_MEAN
 #include <windows.h>
 
 using namespace std;
@@ -10,7 +13,7 @@ using namespace std;
 
 //Setting Frame Per-second times
 
-const int FPS = 300;
+const int FPS = 600;
 
 //This is the game loop 
 GameLoop::GameLoop()
@@ -23,7 +26,8 @@ GameLoop::GameLoop()
 	snake = new Snake();
 	inputHandler->mainGame = this;
 	gameOver = false;
-
+	score = 0;
+	SpawnNewFruit();
 
 }
 //We made the game loop into a object to keep it easy and simple.
@@ -49,10 +53,7 @@ void GameLoop::Draw() {
 		}
 
 		//Clear the console
-
-		//Clear system
-
-		system("CLS");
+		CLS();
 
 		inputHandler->MOVE();
 		Logic(direction);
@@ -60,12 +61,16 @@ void GameLoop::Draw() {
 		//Check if Game Over
 		if ((x == -1 || x == WIDTH+1) || (y == -1 || y == LENGTH+1)) {
 			gameOver = true;
+			system("cls");
 			break;
 		}
 
 		//Check if we got a fruit
 		if (x == fruitX && y == fruitY)
+		{
+			score++;
 			SpawnNewFruit();
+		}
 
 		for (int i = 0; i < WIDTH; i++)
 			cout << "#";
@@ -101,16 +106,15 @@ void GameLoop::Draw() {
 void GameLoop::Update() {
 	x = WIDTH / 2;
 	y = LENGTH / 2;
-	
-	score = 0;
 	Draw();
-
-
 }
 
 void GameLoop::SpawnNewFruit() {
-	fruitX = rand() % WIDTH;
-	fruitY = rand() % LENGTH;
+	auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
+	mt19937 mt_rand(seed);
+
+	fruitX = mt_rand() % WIDTH;
+	fruitY = mt_rand() % LENGTH;
 }
 // This is used for the user direction for the snake.
 void GameLoop::Logic(Direction dir) {
@@ -138,16 +142,13 @@ void GameLoop::Logic(Direction dir) {
 //This was orginally used for testing the board.
 
 
-//void GameLoop::WipeConsole() {
-//	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-//	COORD coord = { 0, 0 };
-//	DWORD count;
-//	CONSOLE_SCREEN_BUFFER_INFO csbi;
-//
-//	if (GetConsoleScreenBufferInfo(hStdOut, &csbi)) {
-//		FillConsoleOutputCharacter(hStdOut, (TCHAR)31, csbi.dwSize.X * csbi.dwSize.Y, coord, &count);
-//		FillConsoleOutputCharacter(hStdOut, csbi.wAttributes, csbi.dwSize.X - 1 * csbi.dwSize.Y - 1, coord, &count);
-//		SetConsoleCursorPosition(hStdOut, coord);
-//	}
-//		
-//}
+void GameLoop::CLS() {
+	HANDLE hOut;
+	COORD Position;
+
+	hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	Position.X = 0;
+	Position.Y = 0;
+	SetConsoleCursorPosition(hOut, Position);
+}

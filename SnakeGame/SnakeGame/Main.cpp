@@ -14,5 +14,6 @@ int main()
 	if (!gameloop.gameOver)
 		gameloop.Update();
 
+	cout << "You scored with: " << gameloop.score << endl;
 	return 0;
 }
