@@ -3,6 +3,7 @@
 #include "Input.h"
 #include "Direction.h"
 #include "Snake.h"
+#include "Menu.h"
 
 class GameLoop
 {
@@ -19,6 +20,8 @@ public:
 	void Logic(Direction dir);
 
 	void SpawnNewFruit();
+
+	void DeleteLastSnakeSegment();
 
 	Direction direction = Direction::RIGHT;
 

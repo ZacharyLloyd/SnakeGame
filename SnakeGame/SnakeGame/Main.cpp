@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Gameloop.h"
 #include "Menu.h"
 #include "Snake.h"
@@ -10,10 +11,32 @@ Menu menu;
 
 int main()
 {
+	bool running = true;
 	//The main game.
-	if (!gameloop.gameOver)
-		gameloop.Update();
+	do {
 
-	cout << "You scored with: " << gameloop.score << endl;
+		if (menu.DisplayChoices(0) == "1") {
+			cin.clear();
+			cin.ignore();
+			if (!gameloop.gameOver)
+				gameloop.Update();
+
+			cout << "You scored with: " << gameloop.score << endl;
+		}
+		
+		else if (menu.DisplayChoices(1) == "1") {
+			cin.clear();
+			cin.ignore();
+			gameloop.gameOver = false;
+			running = true;
+			continue;
+		}
+		else {
+
+			running = false;
+			menu.~Menu();
+		}
+
+	} while (running == true);
 	return 0;
 }

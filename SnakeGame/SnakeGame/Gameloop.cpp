@@ -3,6 +3,7 @@
 #include <chrono>
 #include <random>
 #include <ctime>
+#include <vector>
 #define NOMINMAX
 #define WIN64_LEAN_AND_MEAN
 #include <windows.h>
@@ -14,6 +15,7 @@ using namespace std;
 //Setting Frame Per-second times
 
 const int FPS = 600;
+std::vector<Snake> snakeSegment;
 
 //This is the game loop 
 GameLoop::GameLoop()
@@ -59,16 +61,19 @@ void GameLoop::Draw() {
 		Logic(direction);
 
 		//Check if Game Over
-		if ((x == -1 || x == WIDTH+1) || (y == -1 || y == LENGTH+1)) {
+		if ((snake->x == -1 || snake->x == WIDTH) || (snake->y == -1|| snake->y == LENGTH)) {
 			gameOver = true;
 			system("cls");
 			break;
 		}
 
 		//Check if we got a fruit
-		if (x == fruitX && y == fruitY)
+		if (snake->x == fruitX && snake->y == fruitY)
 		{
 			score++;
+			snake->length = score;
+			Snake segment;
+			snakeSegment.push_back(segment);
 			SpawnNewFruit();
 		}
 
@@ -85,7 +90,7 @@ void GameLoop::Draw() {
 			{
 				if (j == 0)
 					cout << "#";
-				if (i == y && j == x)
+				if (i == snake->y && j == snake->x)
 					snake->CreateSnake();
 				else if (i == fruitY && j == fruitX)
 					cout << "F";
@@ -101,11 +106,12 @@ void GameLoop::Draw() {
 			cout << "#";
 
 	}
+
 }
 //This is made for so the board updates and food updates.
 void GameLoop::Update() {
-	x = WIDTH / 2;
-	y = LENGTH / 2;
+	snake->x = WIDTH / 2;
+	snake->y = LENGTH / 2;
 	Draw();
 }
 
@@ -121,19 +127,20 @@ void GameLoop::Logic(Direction dir) {
 	switch (dir) {
 		//Left direction
 	case Direction::LEFT:
-		x--;
+
+		snake->x--;
 		break;
 		//Right Direction
 	case Direction::RIGHT:
-		x++;
+		snake->x++;
 		break;
 		//Moving UP 
 	case Direction::UP:
-		y--;
+		snake->y--;
 		break;
 		//Moving downword
 	case Direction::DOWN:
-		y++;
+		snake->y++;
 		break;
 	default:
 		break;

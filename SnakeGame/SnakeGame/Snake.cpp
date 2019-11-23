@@ -10,4 +10,3 @@ void Snake::CreateSnake()
 	string head = "O";
 	cout << head;
 }
-
