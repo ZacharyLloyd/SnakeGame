@@ -13,7 +13,15 @@ Menu::Menu() {
 	cout << R"(.----)   |   |  |\   |  /  _____  \  |  .  \  |  |____    |  |__| |  /  _____  \  |  |  |  | |  |____ )" << endl;
 	cout << R"(|_______/    |__| \__| /__/     \__\ |__|\__\ |_______|    \______| /__/     \__\ |__|  |__| |_______|)" << endl;
 	cout << R"(                                                                                                      )" << endl;
-	
+	cout << "Hello!! Player welcome to Snake." << endl;
+	cout << "DIRECTION: " << endl;
+	cout << "When you start the game you will use the A,S,W,D keys." << endl;
+	cout << "A == Left" << endl;
+	cout << "S == Down" << endl;
+	cout << "W == UP" << endl;
+	cout << "D == Right" << endl;
+	cout << "If you eat yourself you will die!!!!" << endl;
+	cout << "If you hit the wall you die!!!!" << endl;
 	inputHandler = new Input();
 }
 
