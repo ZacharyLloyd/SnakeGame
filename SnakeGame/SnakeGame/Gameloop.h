@@ -11,7 +11,7 @@ public:
 	// Constructor
 	GameLoop();
 
-	void CreatedGameLoop();
+	void Run();
 
 	void Update();
 
@@ -49,6 +49,7 @@ public:
 private:
 	class Input* inputHandler = nullptr;
 	class Snake* snake = nullptr;
+	class Menu* menu = nullptr;
 
 protected:
 

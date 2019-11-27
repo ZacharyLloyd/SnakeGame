@@ -26,6 +26,7 @@ GameLoop::GameLoop()
 	//to this instance.
 	inputHandler = new Input();
 	snake = new Snake();
+	menu = new Menu();
 	inputHandler->mainGame = this;
 	gameOver = false;
 	score = 0;
@@ -33,10 +34,35 @@ GameLoop::GameLoop()
 
 }
 //We made the game loop into a object to keep it easy and simple.
-void GameLoop::CreatedGameLoop()
+void GameLoop::Run()
 {
-	//To let us know a game loop was created
-	cout << "The game loop was created as an object." << endl;
+	bool running = true;
+	//The main game.
+	do {
+
+		if (menu->DisplayChoices(0) == "1") {
+			cin.clear();
+			cin.ignore();
+			if (!gameOver)
+				Update();
+
+			cout << "You scored with: " << score << endl;
+		}
+
+		else if (menu->DisplayChoices(1) == "1") {
+			cin.clear();
+			cin.ignore();
+			gameOver = false;
+			running = true;
+			continue;
+		}
+		else {
+
+			running = false;
+			menu->~Menu();
+		}
+
+	} while (running == true);
 
 }
 //This is to draw the board, snake and food, while running the frame rates altogether
