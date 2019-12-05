@@ -41,6 +41,7 @@ void GameLoop::Run()
 	do {
 
 		if (menu->DisplayChoices(0) == "1") {
+			menu->~Menu();
 			cin.clear();
 			cin.ignore();
 			if (!gameOver)
@@ -48,20 +49,6 @@ void GameLoop::Run()
 
 			cout << "You scored with: " << score << endl;
 		}
-
-		else if (menu->DisplayChoices(1) == "1") {
-			cin.clear();
-			cin.ignore();
-			gameOver = false;
-			running = true;
-			continue;
-		}
-		else {
-
-			running = false;
-			menu->~Menu();
-		}
-
 	} while (running == true);
 
 }
@@ -71,7 +58,6 @@ void GameLoop::Draw() {
 	//This for loop is a clock that
 	//Handles how overtime the board will
 	//redraw itself.
-
 	for (;;) {
 		clock_t start;
 		double time = 0.0;
@@ -87,8 +73,9 @@ void GameLoop::Draw() {
 		Logic(direction);
 
 		//Check if Game Over
-		if ((snake->x == -1 || snake->x == WIDTH) || (snake->y == -1|| snake->y == LENGTH)) {
+		if ((snake->x == -1 || snake->x == WIDTH) || (snake->y == -1 || snake->y == LENGTH)) {
 			gameOver = true;
+			menu = new Menu();
 			system("cls");
 			break;
 		}
@@ -98,8 +85,6 @@ void GameLoop::Draw() {
 		{
 			score++;
 			snake->length = score;
-			Snake segment;
-			snakeSegment.push_back(segment);
 			SpawnNewFruit();
 		}
 
@@ -116,12 +101,28 @@ void GameLoop::Draw() {
 			{
 				if (j == 0)
 					cout << "#";
-				if (i == snake->y && j == snake->x)
+
+				else if (i == snake->y && j == snake->x) {
 					snake->CreateSnake();
+				}
+
 				else if (i == fruitY && j == fruitX)
 					cout << "F";
-				else
-					cout << " ";
+
+				else {
+					bool print = false;
+					
+					//Tail growing (supposedly)
+					for (int k = 0; k < snake->length; k++) {
+						if (snake->tailX[k] == j && snake->tailY[k] == i) {
+							cout << "O";
+							print = true;
+						}
+					}
+
+					if(!print)
+						cout << " ";
+				}
 
 				if (j == WIDTH - 1)
 					cout << "#";
@@ -150,20 +151,44 @@ void GameLoop::SpawnNewFruit() {
 }
 // This is used for the user direction for the snake.
 void GameLoop::Logic(Direction dir) {
+#pragma region Moving all tails
+
+	int previousX = snake->tailX[0];
+	int previousY = snake->tailY[0];
+
+	int prev2X = 0;
+	int prev2Y = 0;
+
+	snake->tailX[0] = snake->x;
+	snake->tailY[0] = snake->y;
+
+	for (int i = 1; i < snake->length; i++) {
+		prev2X = snake->tailX[i];
+		prev2Y = snake->tailY[i];
+		snake->tailX[i] = previousX;
+		snake->tailY[i] = previousY;
+		previousX = prev2X;
+		previousY = prev2Y;
+	}
+#pragma endregion
+
+#pragma region Moving the Head
 	switch (dir) {
 		//Left direction
 	case Direction::LEFT:
-
 		snake->x--;
 		break;
+
 		//Right Direction
 	case Direction::RIGHT:
 		snake->x++;
 		break;
+
 		//Moving UP 
 	case Direction::UP:
 		snake->y--;
 		break;
+
 		//Moving downword
 	case Direction::DOWN:
 		snake->y++;
@@ -171,6 +196,7 @@ void GameLoop::Logic(Direction dir) {
 	default:
 		break;
 	}
+#pragma endregion
 }
 //This was orginally used for testing the board.
 
