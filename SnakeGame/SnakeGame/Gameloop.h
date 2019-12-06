@@ -21,7 +21,7 @@ public:
 
 	void SpawnNewFruit();
 
-	void DeleteLastSnakeSegment();
+	void SetToGameOver();
 
 	Direction direction = Direction::RIGHT;
 

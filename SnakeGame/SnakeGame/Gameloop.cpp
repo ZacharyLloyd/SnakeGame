@@ -77,9 +77,7 @@ void GameLoop::Draw() {
 
 		//Check if Game Over
 		if ((snake->x == -1 || snake->x == WIDTH) || (snake->y == -1 || snake->y == LENGTH)) {
-			gameOver = true;
-			system("cls");
-			menu = new Menu();
+			SetToGameOver();
 			break;
 		}
 
@@ -213,4 +211,11 @@ void GameLoop::CLS() {
 	Position.X = 0;
 	Position.Y = 0;
 	SetConsoleCursorPosition(hOut, Position);
+}
+
+void GameLoop::SetToGameOver() {
+	gameOver = true;
+	system("cls");
+	menu = new Menu();
+	system("cls");
 }
