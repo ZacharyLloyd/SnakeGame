@@ -34,11 +34,15 @@ std::string Menu::DisplayChoices(int _index)
 		//Tell use that the menu was created
 		prompt = "1 - Play Game \n99 - Exit Application\n\nInput: ";
 		choice = inputHandler->GetUserInput(prompt);
+		cin.clear();
+		cin.ignore();
 		return choice;
 
 	case 1:
 		prompt = "Play Again?\n1 - Another One\n99 Exit Application\n\nInput: ";
 		choice = inputHandler->GetUserInput(prompt);
+		cin.clear();
+		cin.ignore();
 		return choice;
 
 	default:
