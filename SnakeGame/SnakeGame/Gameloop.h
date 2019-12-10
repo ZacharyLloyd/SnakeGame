@@ -7,9 +7,17 @@
 
 class GameLoop
 {
+	static GameLoop* Instance;
 public:
 	// Constructor
 	GameLoop();
+
+	static GameLoop* GetInstance() {
+		if (!Instance) {
+			Instance = new GameLoop();
+			return Instance;
+		}
+	}
 
 	void Run();
 

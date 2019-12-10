@@ -6,10 +6,12 @@
 
 using namespace std;
 
-GameLoop gameloop;
+GameLoop* GameLoop::Instance = 0;
 
 int main()
 {
-	gameloop.Run();
+	
+	GameLoop* gameloop = gameloop->GetInstance();
+	gameloop->Run();
 	return 0;
 }

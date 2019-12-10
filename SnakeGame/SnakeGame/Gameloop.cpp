@@ -24,6 +24,7 @@ GameLoop::GameLoop()
 	//create new input, reference our snake
 	//and make sure the main game is equal
 	//to this instance.
+	
 	inputHandler = new Input();
 	snake = new Snake();
 	menu = new Menu();
@@ -84,9 +85,9 @@ void GameLoop::Draw() {
 		//Check if we got a fruit
 		if (snake->x == fruitX && snake->y == fruitY)
 		{
+			SpawnNewFruit();
 			score++;
 			snake->length = score;
-			SpawnNewFruit();
 		}
 
 		for (int i = 0; i < WIDTH; i++)
