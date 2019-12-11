@@ -43,7 +43,11 @@ void GameLoop::Run()
 			menu->~Menu();
 			gameOver = false;
 			score = 0;
+
+			//Resetting snake variables
 			snake->length = score;
+			snake->x = WIDTH / 2;
+			snake->y = LENGTH / 2;
 			SpawnNewFruit();
 			if (!gameOver)
 				Update();
@@ -74,21 +78,8 @@ void GameLoop::Draw() {
 		CLS();
 
 		inputHandler->MOVE();
+
 		Logic(direction);
-
-		//Check if Game Over
-		if ((snake->x == -1 || snake->x == WIDTH) || (snake->y == -1 || snake->y == LENGTH)) {
-			SetToGameOver();
-			break;
-		}
-
-		//Check if we got a fruit
-		if (snake->x == fruitX && snake->y == fruitY)
-		{
-			SpawnNewFruit();
-			score++;
-			snake->length = score;
-		}
 
 		for (int i = 0; i < WIDTH; i++)
 			cout << "#";
@@ -134,13 +125,24 @@ void GameLoop::Draw() {
 		for (int i = 0; i < WIDTH; i++)
 			cout << "#";
 
+		//Check if Game Over
+		if ((snake->x == -1 || snake->x == WIDTH) || (snake->y == -1 || snake->y == LENGTH)) {
+			SetToGameOver();
+			break;
+		}
+
+		//Check if we got a fruit
+		if (snake->x == fruitX && snake->y == fruitY)
+		{
+			SpawnNewFruit();
+			score++;
+			snake->length = score;
+		}
 	}
 
 }
 //This is made for so the board updates and food updates.
 void GameLoop::Update() {
-	snake->x = WIDTH / 2;
-	snake->y = LENGTH / 2;
 	Draw();
 }
 
