@@ -20,6 +20,7 @@ Menu::Menu() {
 	cout << "S == Down" << endl;
 	cout << "W == UP" << endl;
 	cout << "D == Right" << endl;
+	cout << "" << endl;
 	cout << "If you eat yourself you will die!!!!" << endl;
 	cout << "If you hit the wall you die!!!!" << endl;
 	inputHandler = new Input();

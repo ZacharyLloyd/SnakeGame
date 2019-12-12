@@ -43,7 +43,7 @@ void GameLoop::Run()
 			menu->~Menu();
 			gameOver = false;
 			score = 0;
-
+			system("CLS");
 			//Resetting snake variables
 			snake->length = score;
 			snake->x = WIDTH / 2;
